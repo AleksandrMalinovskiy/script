@@ -21,9 +21,6 @@ yum install epel-release
 # Установка Nginx
 yum install nginx
 
-# Установка Apache
-yum install httpd
-
 #Удаление папки conf.d 
 rmdir /etc/nginx/conf.d/
 
@@ -40,10 +37,20 @@ mv /etc/nginx/nginx.conf.d/nginx.conf /etc/nginx/
 systemctl start nginx
 ss -ntlp
 
+echo "Выполнено:" 
+echo "firewalld отключен" 
+echo "selinux отключен" 
+echo "nginx установлен, конфиги проброшены" 
+echo "_"
+
 read -p "Продолжить?(yes/no)" r
+
 if
 	[ "$r" = yes ];
 then
+
+# Установка Apache
+yum install httpd
 
  #Удаление конфигов апача
 rm -rf /etc/httpd/conf.d/
@@ -70,6 +77,8 @@ systemctl enable nginx
 systemctl enable httpd
 
 #Создаем файлы для наглядности проверки апача
+
+cd /var/www/
 
 cp -r html html1
 cp -r html html2
