@@ -16,11 +16,7 @@ systemctl enable mysqld
 
 # Проверка портов
 ss -ntlp
-
-ps ax | grep mysqld
-
-# Потоки
-ps -eLf | grep mysqld
+ps -afx | grep mysqld
 
 read -p "Enter hostname " r
 # Ставим имя хоста
