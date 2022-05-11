@@ -95,7 +95,7 @@ cd /var/www/html2/
 
 echo "<h1> Welcome 8082 </h1>" > index.html
 
-Проверяем балансировку
+#Проверяем балансировку
 
 curl localhost
 curl localhost
