@@ -79,9 +79,8 @@ systemctl enable httpd
 #Создаем файлы для наглядности проверки апача
 
 cd /var/www/
-
-cp -r /var/html/ /var/html1/
-cp -r /var/html/ /var/html2/
+mkdir html1
+mkdir html2
 
 cd /var/www/html/
 
