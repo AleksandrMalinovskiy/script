@@ -59,7 +59,7 @@ mv /home/monitoring/prometheus.service /etc/systemd/system/
 
 # Конфиг prometheus
 
-mv /home/monitoring/prometheus.yml etc/prometheus/
+mv /home/monitoring/prometheus.yml /etc/prometheus/
 
 # Запускаем сервис Prometheus
 systemctl daemon-reload
