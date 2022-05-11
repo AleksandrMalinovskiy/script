@@ -58,7 +58,7 @@ cd /home/
 mv /home/monitoring/prometheus.service /etc/systemd/system/
 
 # Конфиг prometheus
-
+rm /etc/prometheus/prometheus.yml
 mv /home/monitoring/prometheus.yml /etc/prometheus/
 
 # Запускаем сервис Prometheus
