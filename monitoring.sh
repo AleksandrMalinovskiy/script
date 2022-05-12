@@ -42,17 +42,59 @@ read -p "Установливаем prometheus?(y/n)" r
 if
 	[ "$r" = y ];
 then
+read -p "Создать папку prometheus?" r
 
-cp prometheus-2.13.0.linux-amd64/prometheus /usr/local/bin/
-cp prometheus-2.13.0.linux-amd64/promtool /usr/local/bin/
-chown prometheus:prometheus /usr/local/bin/prometheus
-chown prometheus:prometheus /usr/local/bin/promtool
-mkdir /etc/prometheus
-cp -r prometheus-2.13.0.linux-amd64/consoles/ /etc/prometheus/
-cp -r prometheus-2.13.0.linux-amd64/console_libraries/ /etc/prometheus/
-chown -R prometheus:prometheus /etc/prometheus/
-mkdir /var/lib/prometheus
-chown prometheus:prometheus /var/lib/prometheus
+if
+	[ "$r" = y ];
+then
+mkdir {/etc/,/var/lib/}prometheus
+elif
+	[ "$r" = n ];
+then
+	echo "ERROR"
+	exit
+fi
+
+read -p "Копируем файлы?" r
+
+if
+	[ "$r" = y ];
+then
+cp -vi prometheus-*.linux-amd64/prom{etheus,tool} /usr/local/bin
+
+elif
+	[ "$r" = n ];
+then
+	echo "ERROR"
+	exit
+fi
+
+read -p "Копируем файлы?" r
+
+if
+	[ "$r" = y ];
+then
+cp -rvi prometheus-*.linux-amd64/{console{_libraries,s},prometheus.yml} /etc/prometheus/
+elif
+	[ "$r" = n ];
+then
+	echo "ERROR"
+	exit
+fi
+
+read -p "Изменяем владельца?" r
+
+if
+	[ "$r" = y ];
+then
+chown -Rv prometheus: /usr/local/bin/prom{etheus,tool} /etc/prometheus/ /var/lib/prometheus/
+
+elif
+	[ "$r" = n ];
+then
+	echo "ERROR"
+	exit
+fi
 
 elif
 	[ "$r" = n ];
