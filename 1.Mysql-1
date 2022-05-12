@@ -1,4 +1,12 @@
 #!/bin/bash
+#Получение ssh ключа
+#ssh-keygen
+#cat ~/.ssh/id_rsa.pub
+#Установка Git
+#yum install git
+#cd /home/
+#git clone git@github.com:AleksandrMalinovskiy/script.git
+#Запуск скрипта 
 # Установка репозитория Oracle MySQL 8.0
 rpm -Uvh https://repo.mysql.com/mysql80-community-release-el7-5.noarch.rpm
 
