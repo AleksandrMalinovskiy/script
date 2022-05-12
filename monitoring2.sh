@@ -1,70 +1,44 @@
 #!/bin/bash
 
-
 # Установка prometheus
-
-# Создаём папки и копируем файлы
-
-
-read -p "mkdir {/etc/,/var/lib/}prometheus" r
+read -p "Создать папку prometheus?" r
 
 if
-	[ "$r" = yes ];
+	[ "$r" = y ];
 then
 mkdir {/etc/,/var/lib/}prometheus
 elif
-	[ "$r" = no ];
+	[ "$r" = n ];
 then
 	echo "ERROR"
 	exit
 fi
 
-
-
-
-read -p "cp -vi prometheus-*.linux-amd64/prom{etheus,tool} /usr/local/bin" r
+read -p "Копируем файлы?" r
 
 if
-	[ "$r" = yes ];
+	[ "$r" = y ];
 then
 cp -vi prometheus-*.linux-amd64/prom{etheus,tool} /usr/local/bin
 
 elif
-	[ "$r" = no ];
+	[ "$r" = n ];
 then
 	echo "ERROR"
 	exit
 fi
 
-
-
-
-read -p "cp -rvi prometheus-*.linux-amd64/{console{_libraries,s},prometheus.yml} /etc/prometheus/" r
-
-if
-	[ "$r" = yes ];
-then
 cp -rvi prometheus-*.linux-amd64/{console{_libraries,s},prometheus.yml} /etc/prometheus/
 
-elif
-	[ "$r" = no ];
-then
-	echo "ERROR"
-	exit
-fi
-
-
-
-
-read -p "chown -Rv prometheus: /usr/local/bin/prom{etheus,tool} /etc/prometheus/ /var/lib/prometheus/" r
+read -p "Изменяем владельца?" r
 
 if
-	[ "$r" = yes ];
+	[ "$r" = y ];
 then
 chown -Rv prometheus: /usr/local/bin/prom{etheus,tool} /etc/prometheus/ /var/lib/prometheus/
 
 elif
-	[ "$r" = no ];
+	[ "$r" = n ];
 then
 	echo "ERROR"
 	exit
