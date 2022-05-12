@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /home/
 git clone git@github.com:AleksandrMalinovskiy/monitoring.git
 
 curl -LO https://github.com/prometheus/prometheus/releases/download/v2.34.0/prometheus-2.34.0.linux-amd64.tar.gz
@@ -15,8 +16,6 @@ cp -rvi prometheus-*.linux-amd64/{console{_libraries,s},prometheus.yml} /etc/pro
 chown -Rv prometheus: /usr/local/bin/prom{etheus,tool} /etc/prometheus/ /var/lib/prometheus/
 
 # Настраиваем сервис
-
-cd /home/
 
 mv /home/monitoring/prometheus.service /etc/systemd/system/
 
