@@ -1,4 +1,5 @@
 #!/bin/bash
+git clone git@github.com:AleksandrMalinovskiy/monitoring.git
 
 curl -LO https://github.com/prometheus/prometheus/releases/download/v2.34.0/prometheus-2.34.0.linux-amd64.tar.gz
 
@@ -7,8 +8,6 @@ tar xzvf prometheus-*.t*gz
 
 # Добавляем пользователей
 useradd --no-create-home --shell /usr/sbin/nologin prometheus
-
-git clone git@github.com:AleksandrMalinovskiy/monitoring.git
 
 mkdir {/etc/,/var/lib/}prometheus
 cp -vi prometheus-*.linux-amd64/prom{etheus,tool} /usr/local/bin
