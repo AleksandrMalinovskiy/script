@@ -37,16 +37,16 @@ systemctl enable node_exporter
 echo "node_exporter установлен" 
 
 
-read -p "Установливаем prometheus?(yes/no)" r
+read -p "Установливаем prometheus?(y/n)" r
 
 if
-	[ "$r" = yes ];
+	[ "$r" = y ];
 then
 
 cd /home/
 
 # Установка prometheus
-read -p "Создать папку prometheus?" r
+read -p "Создать папку prometheus?(y/n)" r
 
 if
 	[ "$r" = y ];
@@ -59,7 +59,7 @@ then
 	exit
 fi
 
-read -p "Копируем файлы?" r
+read -p "Копируем файлы?(y/n)" r
 
 if
 	[ "$r" = y ];
@@ -75,7 +75,7 @@ fi
 
 cp -rvi prometheus-*.linux-amd64/{console{_libraries,s},prometheus.yml} /etc/prometheus/
 
-read -p "Изменяем владельца?" r
+read -p "Изменяем владельца?(y/n)" r
 
 if
 	[ "$r" = y ];
@@ -108,7 +108,7 @@ systemctl enable prometheus
 
 
 elif
-	[ "$r" = no ];
+	[ "$r" = n ];
 then
 	echo "ERROR"
 	exit
@@ -117,10 +117,10 @@ fi
 echo "Node_exporter установлен" 
 echo "Prometheus установлен"
 
-read -p "Установливаем grafana?(yes/no)" r
+read -p "Установливаем grafana?(y/n)" r
 
 if
-	[ "$r" = yes ];
+	[ "$r" = y ];
 then
 
 
@@ -137,7 +137,7 @@ systemctl start grafana-server
 systemctl status grafana-server
 
 elif
-	[ "$r" = no ];
+	[ "$r" = n ];
 then
 	echo "ERROR"
 	exit
