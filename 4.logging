@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #Установка logstash
+cd /home/
+
 rpm -i logstash_7.17.3_x86_64-224190-392536.rpm
 
 # logstash config
