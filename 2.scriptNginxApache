@@ -43,10 +43,10 @@ echo "selinux отключен"
 echo "nginx установлен, конфиги проброшены" 
 echo "_"
 
-read -p "Продолжить?(yes/no)" r
+read -p "Продолжить?(y/n)" r
 
 if
-	[ "$r" = yes ];
+	[ "$r" = y ];
 then
 
 # Установка Apache
@@ -101,7 +101,7 @@ curl localhost
 curl localhost              
              
 elif
-	[ "$r" = no ];
+	[ "$r" = n ];
 then
 	echo "ERROR"
 	exit
