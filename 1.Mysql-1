@@ -28,7 +28,7 @@ ps -afx | grep mysqld
 
 read -p "Enter hostname " r
 # Ставим имя хоста
-hostnamectl set-hostname $r
+#hostnamectl set-hostname $r
 
 
 
