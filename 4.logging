@@ -66,20 +66,20 @@ rpm -i filebeat_7.17.3_x86_64-224190-59ccad.rpm
 
 # Filebeat config
 
-rm /etc/filebeat/filebeat.yml
-mv /home/logging/filebeat.yml  /etc/filebeat/
+#rm /etc/filebeat/filebeat.yml
+#mv /home/logging/filebeat.yml  /etc/filebeat/
 
 
-systemctl enable filebeat
-systemctl restart filebeat
-systemctl status filebeat
-ss -ntlp
+#systemctl enable filebeat
+#systemctl restart filebeat
+#systemctl status filebeat
+#ss -ntlp
 
 
 systemctl status elasticsearch
 systemctl status kibana
 systemctl status logstash
-systemctl status filebeat
+#systemctl status filebeat
 
 
 # Ходим по 80 порту, собираем логи nginx
