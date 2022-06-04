@@ -3,7 +3,7 @@
 directory="/root/Mysql/backup/"
 fdate=`date +%Y-%m-%d`
 pass="Testpass1$"
-
+mysql -uroot -p$pass -e "STOP SLAVE;"
 for nameBD in $(mysql -uroot -p$pass -e "show databases;") ;
 do
 if mkdir -p $directory/$fdate/$nameBD ;
