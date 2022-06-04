@@ -48,11 +48,8 @@ rpm -i kibana_7.17.3_x86_64-224190-3badd3.rpm
 
 # Установка kibana
 
-sed -i "s/#server.port: 5601/server.port: 5601/" /etc/kibana/kibana.yml
-sed -i '7s/#server.host:/server.host:/' /etc/kibana/kibana.yml
-sed -i '7s/"localhost"/"0.0.0.0"/' /etc/kibana/kibana.yml
-sed -i '32s/#elasticsearch.hosts:/elasticsearch.hosts:/' /etc/kibana/kibana.yml
-
+rm /etc/kibana/kibana.yml
+mv /home/logging/kibana.yml /etc/kibana/
 sudo systemctl enable --now kibana
 
 sudo firewall-cmd --add-port=5601/tcp --permanent
