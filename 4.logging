@@ -64,7 +64,7 @@ ss -ntlp
 #Установка filebeat
 rpm -i filebeat_7.17.3_x86_64-224190-59ccad.rpm
 
-Filebeat config
+#Filebeat config
 
 rm /etc/filebeat/filebeat.yml
 mv /home/logging/filebeat.yml  /etc/filebeat/
